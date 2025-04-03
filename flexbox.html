@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fluid Responsive Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #ecf0f1;
+            --content-width: min(100% - 2rem, 1200px);
+        }
+
+        body {
+            font-family: system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--primary-color);
+        }
+
+        /* Fluid Navigation */
+        .nav-container {
+            background: var(--primary-color);
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .nav-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 0.5em 1em;
+            border-radius: 2em;
+            transition: all 0.3s ease;
+        }
+
+        /* Adaptive Main Content */
+        .grid-container {
+            padding: 2rem 1rem;
+            margin: 0 auto;
+            width: var(--content-width);
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        }
+
+        .grid-item {
+            background: var(--secondary-color);
+            padding: clamp(1rem, 3vw, 2rem);
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+            margin-bottom: 0.75em;
+        }
+
+        /* Enhanced Responsiveness */
+        @media (hover: hover) {
+            .nav-link:hover {
+                background: rgba(255,255,255,0.1);
+                transform: translateY(-2px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .grid-container {
+                gap: 1.5rem;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav-link {
+                padding: 0.75em 1.5em;
+            }
+            
+            .grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-container">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Explore</a>
+        <a href="#" class="nav-link">Resources</a>
+        <a href="#" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>Natural Flow</h2>
+            <p>Experience content that adapts seamlessly to your viewport. Our layout breathes with your screen size.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Responsive Harmony</h2>
+            <p>Elements maintain perfect spacing and proportion across all devices through intelligent CSS calculations.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Fluid Typography</h2>
+            <p>Text sizes smoothly transition between mobile and desktop using modern CSS clamp() function.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Adaptive Colors</h2>
+            <p>Color scheme maintains readability and contrast in various lighting conditions.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Intuitive Navigation</h2>
+            <p>Menu items adapt their spacing and layout while remaining fully accessible.</p>
+        </div>
+        <div class="grid-item">
+            <h2>Performance First</h2>
+            <p>Optimized layout calculations ensure smooth rendering across all devices.</p>
+        </div>
+    </div>
+</body>
+</html>
